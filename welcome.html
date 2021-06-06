@@ -1,0 +1,78 @@
+
+<div ng-app="feedback" ng-controller="logincntrl" ng-init="getprofilepic()">
+
+Welcome  to Messenger  !!!
+
+<style>
+  .back {
+     width: 2000;
+     height: 2000;
+
+  }
+   .text1 {
+    color: yellow;
+    opacity: 1000;
+    font-weight: bold;
+  }
+
+  .profilepic {
+	 width: 500;
+     height: 500;  	
+  }
+</style>	
+
+
+
+<div class="back" ng-style="{ 'background-image': getimage() }">	
+<input  type="button" value="Change Profile Pic" ng-click="changeprofilepic()">+
+
+<div class="profilepic" >
+<img ng-src ="{{imgsource}}"  width="200" height="200">
+
+</div>
+
+<div class="container">
+    <img src="img_lights.jpg" alt="Northern Lights" width="600" height="200">
+    <div class="overlay">
+    <div class="text">Hello You are LoggedIn !!! </div>
+  </div>
+</div>	
+
+You are logged in !!!<br><br>	
+
+<input ng-model="username" type="text"  style="color:blue;" placeholder="Enter Sender Username"><br><br>
+<input ng-model="message" type="textarea"  style="color:blue;" placeholder="Enter Your Message"><br><br>
+<input  type="button" value="SendMessage" ng-click="Msgsend()"><br><br><br><br>
+<input  type="button" value="View Labels" ng-click="ViewLabel()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<select ng-model="labs" >
+<option ng-repeat="lab in labels track by $index">{{lab.parentlabel}}</option>
+</select>
+<br><br><br><br>
+<input  type="button" value="View Messages" ng-click="getMsg()"><br><br>
+<div class="text1">
+<table class="text1" border=1>
+<tr>
+	<td>SenderName	</td>
+	<td>Message</td>
+	<td>Label</td>
+</tr>
+
+<tr ng-repeat="stud in students">
+	<td>{{stud.username}}</td>
+	<td>{{stud.message}}</td>
+	<td>{{stud.labname}}</td>
+</tr>
+</table>
+</div>
+
+<br><br><br><br>
+<input  type="button" value="Add Label" ng-click="addLabel()"><br><br>
+<input  type="button" value="Photo Album" ng-click="addphoalbum()"><br><br>
+
+<br><br><br><br>
+<input  type="button" value="Logout" ng-click="logout()"><br><br>
+
+	
+
+</div>
